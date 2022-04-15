@@ -16,6 +16,32 @@
 ?>
 
 
+<?php
+
+if(isset($_POST['submit'])) {
+    $name = $_POST['Name'];
+    $history = $_POST['History'];
+    $email = $_POST['Email'];
+    $age = $_POST['Age'];
+    $bloodGroup = $_POST['BloodGroup'];
+    $gender = $_POST['Gender'];
+    $contact = $_POST['Contact'];
+    $address = $_POST['Address'];
+
+    $update = "UPDATE donorhistory SET Name='$name', Email='$email', BloodGroup='$bloodGroup', Gender='$gender', Contact='$contact', Address='$address', History='$history' WHERE Id=$id";
+
+    if(mysqli_query($conn,$update)){
+        echo '<script>alert("Update succesfully")</script>';
+       
+    } else {
+        echo '<script>alert("Unable to Update")</script>';
+    }
+    
+    header("Location: ../admin/admindonorHistory.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -173,31 +199,6 @@
         </div>
     </div>
     </center>
-
-    <?php
-
-        if(isset($_POST['submit'])) {
-            $name = $_POST['Name'];
-            $history = $_POST['History'];
-            $email = $_POST['Email'];
-            $age = $_POST['Age'];
-            $bloodGroup = $_POST['BloodGroup'];
-            $gender = $_POST['Gender'];
-            $contact = $_POST['Contact'];
-            $address = $_POST['Address'];
-
-            $update = "UPDATE donorhistory SET Name='$name', Email='$email', BloodGroup='$bloodGroup', Gender='$gender', Contact='$contact', Address='$address', History='$history' WHERE Id=$id";
-
-            if(mysqli_query($conn,$update)){
-                echo '<script>alert("Update succesfully")</script>';
-               
-            } else {
-                echo '<script>alert("Unable to Update")</script>';
-            }
-            
-            header("Location: ../admin/admindonorHistory.php");
-        }
-    ?>
 
 </body>
 </html>

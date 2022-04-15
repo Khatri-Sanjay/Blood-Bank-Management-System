@@ -3,6 +3,34 @@
 ?>
 
 
+<?php
+
+        if(isset($_POST['submit'])) {
+            $name = $_POST['Name'];
+            $email = $_POST['Email'];
+            $age = $_POST['Age'];
+            $bloodGroup = $_POST['BloodGroup'];
+            $gender = $_POST['Gender'];
+            $history = $_POST['History'];
+            $contact = $_POST['Contact'];
+            $address = $_POST['Address'];
+
+            $insert = "INSERT INTO donorhistory (Name,Email,BloodGroup,Gender,Contact,Age,Address,History) VALUES ('$name','$email','$bloodGroup','$gender','$contact','$age','$address','$history')";
+
+            // echo $insert;
+
+            if(mysqli_query($conn,$insert)){
+                echo '<script>alert("Donor Info Added succesfully")</script>';
+               
+            } else {
+                echo "unable to insert";
+            }
+            
+            header("location: admindonorHistory.php");
+        }
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,33 +126,6 @@
     </div>
     </div>
 </center>
-
-<?php
-
-        if(isset($_POST['submit'])) {
-            $name = $_POST['Name'];
-            $email = $_POST['Email'];
-            $age = $_POST['Age'];
-            $bloodGroup = $_POST['BloodGroup'];
-            $gender = $_POST['Gender'];
-            $history = $_POST['History'];
-            $contact = $_POST['Contact'];
-            $address = $_POST['Address'];
-
-            $insert = "INSERT INTO donorhistory (Name,Email,BloodGroup,Gender,Contact,Age,Address,History) VALUES ('$name','$email','$bloodGroup','$gender','$contact','$age','$address','$history')";
-
-            // echo $insert;
-
-            if(mysqli_query($conn,$insert)){
-                echo '<script>alert("Donor Info Added succesfully")</script>';
-               
-            } else {
-                echo "unable to insert";
-            }
-            
-            header("location: admindonorHistory.php");
-        }
-        ?>
 
 </body>
 </html>
