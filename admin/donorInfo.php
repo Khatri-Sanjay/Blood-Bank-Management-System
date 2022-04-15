@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/table.css">
     <title>Blood Donor Info</title>
+    <style>
+        .search{
+            display: inline-block;
+            float: right;
+            margin-right: 100px;
+        }
+    </style>
 
 </head>
 <body>
@@ -15,7 +22,28 @@
         <h1>Blood Donor Information</h1>
     </div>
 
-    <div class="main">
+    <div class="search">
+        <h4>Search through blood group</h4>
+        
+        <form action="donorInfo.php" method="get">
+            <input type="hidden" name="pages" value="1"> 
+            <!-- <input type="text" name="search" value="" placeholder="Search through name"> -->
+            <select name="search" >
+            <option value="A+ve">A+ve</option>
+              <option value="A-ve">A-ve</option>
+              <option value="B+ve">B+ve</option>
+              <option value="B-ve">B-ve</option>
+              <option value="AB+ve">AB+ve</option>
+              <option value="AB-ve">AB-ve</option>
+              <option value="O+ve">O+ve</option>
+              <option value="O-ve">O-ve</option>
+              <option value="None" selected>----</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form> 
+    </div>
+
+    <center>
     <table class="content-table">
         <thead>
             <tr>
@@ -34,16 +62,39 @@
                 <th>Action</th>
             </tr>
         </thead>
-    </div>
+    
 
     <?php
     include "../connection/config.php";
-    $selectQuery = "SELECT * FROM donor";
+    
+    $data_per_page= 10;
 
-    $result = mysqli_query($conn, $selectQuery);  //
+    if(isset($_GET['pages'])){
+        $page  = $_GET["pages"];
+    }
+    else {
+        $page = 1;
+    }
 
+    $start_from=($page-1)*$data_per_page;
+
+    if(isset($_GET['search'])){
+        $search = $_GET['search'];
+    }else{
+        $search="";
+    }
+
+     $sql = "select * from `donor` where  BloodGroup like '%$search%' limit $start_from,$data_per_page";
+
+    $result = mysqli_query($conn, $sql);
+    
     if(mysqli_num_rows($result)){
-        $i = 1;
+        // $id = 1;
+        if(isset($_GET['pages'])){
+        $i = (($_GET['pages']-1)*10)+1;
+        }else{
+            $i=1;
+        }
         while($row = mysqli_fetch_assoc($result)){
         
 
@@ -84,18 +135,45 @@
             </button>
         </td>
     </tr>
-        <?php
+    <?php
         $i++;
         }
-    }
+    }else{
         ?>
+        <tr><td colspan="5">No Records found
+
+        <?php }
+        ?>
+
     </tbody>
     </table>
+
+    <?php
+
+        error_reporting(E_ERROR | E_PARSE);        
+
+        $sql = "select * from `donor`";
+        $result = mysqli_query($conn,$sql);
+        $total_data = mysqli_num_rows($result);
+        // echo $total_data;
+        $total_pages = ceil($total_data/$data_per_page);
+        // echo $total_pages;
+
+
+        for($i=1;$i<=$total_pages;$i++){
+
+
+            echo '<a style="font-size:12px;color:red;padding: 5px;bottom:0;" href="donorInfo.php?pages='.$i.'&search='.$_GET['search'].'   ">'.$i.'</a>';
+        }
+        
+    ?>
 
     <script>
       function sendMail(m){
          parent.location = "mailto:"+m;
       }
     </script> 
+
+</center>
 </body>
 </html>

@@ -35,9 +35,7 @@
             <input type="hidden" name="pages" value="1"> 
             <input type="text" name="search" value="" placeholder="Search through name">
             <button type="submit">Submit</button>
-
-        </form>
-        
+        </form> 
     </div>
     
 
