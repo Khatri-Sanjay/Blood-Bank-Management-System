@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/table.css">
     <title>Donor History </title>
-    <style>
-        .main{
-            font-size: 20px;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -19,7 +15,7 @@
         <h1>Donor History</h1>
     </div>
     
-    <div class="main">
+    <center>
     <table class="content-table">
         <thead>
             <tr>
@@ -33,7 +29,7 @@
                 <th>Address</th>
             </tr>
         </thead>
-    </div>
+    
 
     <?php
     include "connection/config.php";
@@ -66,5 +62,7 @@
         ?>
     </tbody>
     </table>
+
+    </center>   
 </body>
 </html>

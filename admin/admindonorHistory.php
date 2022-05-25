@@ -32,6 +32,19 @@
         <h4>Search</h4>
         <i class="fa-solid fa-magnifying-glass"></i>
         <form action="admindonorHistory.php" method="get">
+            
+            <!-- <select name="search" >
+            <option value="A+ve">A+ve</option>
+              <option value="A-ve">A-ve</option>
+              <option value="B+ve">B+ve</option>
+              <option value="B-ve">B-ve</option>
+              <option value="AB+ve">AB+ve</option>
+              <option value="AB-ve">AB-ve</option>
+              <option value="O+ve">O+ve</option>
+              <option value="O-ve">O-ve</option>
+              <option value="None" selected>----</option>
+            </select> -->
+
             <input type="hidden" name="pages" value="1"> 
             <input type="text" name="search" value="" placeholder="Search through name">
             <button type="submit">Submit</button>

@@ -46,9 +46,12 @@ if(isset($_POST['submit'])) {
 <?php include 'header.php'?>
 
 
-    <marquee behavior="sliding" direction="left" loop="10">Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life
-        &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life
-        &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life</marquee>
+    <marquee behavior="sliding" direction="left" loop="10">
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+    </marquee>
 
     <!-- Backgroud Image Section Starts From Here -->
     <section>
@@ -135,6 +138,9 @@ if(isset($_POST['submit'])) {
 
 <?php include 'footer.php'?>
 
+<script>
+  
+</script>
 
 </body>
 
