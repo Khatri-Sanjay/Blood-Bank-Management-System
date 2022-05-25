@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);  
+
 if(isset($_POST['submit'])) {
     include ("connection/config.php");
     $name = $_POST['Name'];
@@ -36,16 +38,19 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/form.css">
     <title>Donate Blood Form</title>
+    
 </head>
 
 <body>
     
 <?php include 'header.php'?>
 
-
-    <marquee behavior="sliding" direction="left" loop="10">Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life
-        &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life
-        &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life</marquee>
+    <marquee behavior="sliding" direction="left" loop="10">
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+        Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
+        Donate Blood Save Life
+    </marquee>
 
     <!-- Backgroud Image Section Starts From Here -->
     <section>
@@ -62,35 +67,51 @@ if(isset($_POST['submit'])) {
   <div class="container">
     <div class="title">Donate Form</div>
     <div class="content">
-      <form action="" method="POST">
+
+      <form action="" name="regForm" method="POST" onsubmit="return formValidation()">
+
         <div class="user-details">
+
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name"  name="Name" maxlength = "40" required>
+            <input type="text" placeholder="Enter your name" id="Name" name="Name" required>
+            <span style="color:red" id="rNameErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="email" placeholder="Enter your email" name="Email" required>
+            <input type="email" placeholder="Enter your email" id="Email" name="Email" required>
+            <span style="color:red" id="rEmailErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">CitizenShip No.</span>
-            <input type="text" placeholder="Enter CitizenShip Number" name="CitizenShip_No" max="9999999999" required>
+            <input type="text" placeholder="Enter CitizenShip Number" id="CitizenShip_No" name="CitizenShip_No" required>
+            <span style="color:red" id="rCitizenErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="number" placeholder="Enter your number" name="Contact" max = "9999999999" required>
+            <input type="text" placeholder="Enter your number" id="Contact" name="Contact"  required>
+            <span style="color:red" id="rContactErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">Age</span>
-            <input type="number" placeholder="Enter your age" name="Age" max="99" required>
+            <input type="text" placeholder="Enter your age" id="Age" name="Age" required>
+            <span style="color:red" id="rAgeErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">Adderss</span>
-            <input type="text" placeholder="Enter your address" name="Address" maxlength = "20" required>
+            <input type="text" placeholder="Enter your address" id="Address" name="Address" required>
+            <span style="color:red" id="rAddressErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">Choose Blood Group</span>
-            <select id="bGroup" name="BloodGroup" required>
+            <select id="BloodGroup" name="BloodGroup" required>
+              <option value="">None</option>
               <option value="A+ve">A+ve</option>
               <option value="A-ve">A-ve</option>
               <option value="B+ve">B+ve</option>
@@ -99,35 +120,47 @@ if(isset($_POST['submit'])) {
               <option value="AB-ve">AB-ve</option>
               <option value="O+ve">O+ve</option>
               <option value="O-ve">O-ve</option>
-              <option value="None" selected>None</option>
             </select>
+            <span style="color:red" id="rBloodGroupErr"></span>
           </div>
+
           <div class="input-box">
             <span class="details">Gender</span>
-            <select name="Gender" required>
+            <select id="Gender" name="Gender" required>
+              <option value="">None</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Others">Others</option>
-              <option value="None" selected>None</option>
             </select>
+            <span style="color:red" id="rGenderErr"></span>
           </div>
-          <div class="input-box">
+
+          <!-- <div class="input-box">
             <span class="details">Message</span>
-            <textarea rows="4" cols="50" name="Message" placeholder="Enter your message" required></textarea>
-          </div>
+            <textarea rows="4" cols="50" id="Message" name="Message" placeholder="Enter your message" required></textarea>
+          </div> -->
+
         </div>
+
         <div class="button">
-          <input type="submit" value="Submit" name="submit">
+          <input type="submit" class="submit" value="Submit" name="submit">
         </div>
+
       </form>
+
+    </div>
     </div>
   </div>
 </center>
+
+<script src="./js/formValidation.js"></script>
+
 <br>
 
 <?php include 'footer.php'?>
 
 
 </body>
+
 
 </html>

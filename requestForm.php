@@ -68,35 +68,43 @@ if(isset($_POST['submit'])) {
   <div class="container">
     <div class="title">Request Form</div>
     <div class="content">
+
       <form action="" method='POST'>
         <div class="user-details">
+
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" name="Name" maxlength="40" required >
+            <input type="text" placeholder="Enter your name" id="Name" name="Name" maxlength="40" required >
           </div>
+
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" name="Email" required>
+            <input type="text" placeholder="Enter your email" id="Email" name="Email" required>
           </div>
+
           <div class="input-box">
             <span class="details">Blood Pound</span>
-            <input type="number" placeholder="Enter how many pound of blood do you need" name="BloodPound" min="1" max="10" required>
+            <input type="number" placeholder="Enter how many pound of blood do you need" id="BloodPound" name="BloodPound" min="1" max="10" required>
           </div>
+
           <div class="input-box">
             <span class="details">CitizenShip No.</span>
-            <input type="text" placeholder="Enter CitizenShip Number" name="CitizenShip_No" required>
+            <input type="text" placeholder="Enter CitizenShip Number" id="CitizenShip_No" name="CitizenShip_No" required>
           </div>
+
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="number" placeholder="Enter your number" name="Contact" max="9999999999" required>
+            <input type="number" placeholder="Enter your number" id="Contact" name="Contact" max="9999999999" required>
           </div>
+
           <div class="input-box">
             <span class="details">Age</span>
-            <input type="number" name="Age" placeholder="Enter your age" max="99" required>
+            <input type="number" placeholder="Enter your age" id="Age" name="Age" max="99" required>
           </div>
+
           <div class="input-box">
             <span class="details">Choose Blood Group</span>
-            <select id="bGroup" name="BloodGroup" required>
+            <select id="BloodGroup" name="BloodGroup" required>
               <option value="A+ve">A+ve</option>
               <option value="A-ve">A-ve</option>
               <option value="B+ve">B+ve</option>
@@ -108,32 +116,39 @@ if(isset($_POST['submit'])) {
               <option value="None" selected>None</option>
             </select>
           </div>
+
           <div class="input-box">
             <span class="details">Gender</span>
-            <select  name="Gender" required >
+            <select id="Gender" name="Gender" required >
               <option name= "Gender" value="Male">Male</option>
               <option name= "Gender" value="Female">Female</option>
               <option name= "Gender" value="Others">Others</option>
               <option value="None" selected>None</option>
             </select>
           </div>
+
           <div class="input-box">
             <span class="details">Adderss</span>
-            <input type="text" placeholder="Enter your address" name="Address" required>
+            <input type="text" placeholder="Enter your address" id="Address" name="Address" required>
           </div>
+
           <div class="input-box">
             <span class="details">Message</span>
-            <textarea rows="4" cols="40" placeholder="Enter your message" name="Message" required></textarea>
+            <textarea rows="4" cols="40" placeholder="Enter your message" id="Message" name="Message" required></textarea>
           </div>
         </div>
+
         <div class="button">
           <input type="submit" value="Submit" name="submit">
           <!-- <button type="submit" name="submit" id="submit">Submit</button> -->
         </div>
       </form>
+
+    </div>
     </div>
   </div>
 </center>
+
 <br>
 
 <?php include 'footer.php'?>

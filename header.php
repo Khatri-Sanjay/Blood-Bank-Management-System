@@ -21,7 +21,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="donorForm.php">Donate</a></li>
             <li><a href="requestForm.php">Request</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <!-- <li><a href="#contact">Contact</a></li> -->
             <li><a href="donorHistory.php">Donor History</a></li>
           </ul>
 

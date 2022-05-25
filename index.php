@@ -140,7 +140,7 @@
         </div>
     </section>
 
-<?php require 'contact.php' ?>
+<!-- <?php require 'contact.php' ?> -->
 
 <br>
 <br>
