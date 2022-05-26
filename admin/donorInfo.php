@@ -43,6 +43,8 @@
         </form> 
     </div>
 
+    <br><br>
+
     <center>
     <table class="content-table">
         <thead>
@@ -62,7 +64,7 @@
                 <th>Action</th>
             </tr>
         </thead>
-    
+    </div>
 
     <?php
     include "../connection/config.php";

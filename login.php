@@ -40,16 +40,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Login Page</h1><br>
 
     <div class="login">    
-    <form action="" method="POST">    
+    <form action="" name="regForm" method="POST" onsubmit="return formValidation()">    
         <label><b>User Name</b></label>    
-        <input type="text" name="Uname" id="Uname" placeholder="Username">    
+        <input type="text" name="Uname" id="Uname" placeholder="Username">
+        <br> 
+        <span style="color:red" id="rUsernameErr"></span>   
         <br><br>    
         <label><b>Password</b></label>    
-        <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br>
+        <span style="color:red" id="rPasswordErr"></span>    
         <br><br>
-        <button type="submit" id="log" name="submit">Log In Here</button>
+        <button type="submit" class="submit" id="submit" name="submit">Log In Here</button>
     </form> 
     </div>
 
-</body>    
+<script src="./js/loginValidation.js"></script>
+
+</body>
+
 </html>     

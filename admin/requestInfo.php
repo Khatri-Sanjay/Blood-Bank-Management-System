@@ -42,6 +42,8 @@
         </form> 
     </div>
     
+    <br><br>
+
     <center>
     <table class="content-table">
         <thead>

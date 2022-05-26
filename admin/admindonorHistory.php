@@ -29,8 +29,8 @@
         <button class="add" ><a href="add.php">Add</a></button>
     </div>
     <div class="search">
-        <h4>Search</h4>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <h4>Search <i class="fa-solid fa-magnifying-glass"></i> </h4>
+        
         <form action="admindonorHistory.php" method="get">
             
             <!-- <select name="search" >
@@ -50,7 +50,6 @@
             <button type="submit">Submit</button>
         </form> 
     </div>
-    
 
     <center>
     <table class="content-table">

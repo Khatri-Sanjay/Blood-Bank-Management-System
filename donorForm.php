@@ -1,3 +1,5 @@
+
+
 <?php
 
 error_reporting(E_ERROR | E_PARSE);  
@@ -28,9 +30,7 @@ if(isset($_POST['submit'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,11 +39,12 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="./css/form.css">
     <title>Donate Blood Form</title>
     
+    
 </head>
 
 <body>
     
-<?php include 'header.php'?>
+  <?php include 'header.php'?>
 
     <marquee behavior="sliding" direction="left" loop="10">
         Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
@@ -135,10 +136,11 @@ if(isset($_POST['submit'])) {
             <span style="color:red" id="rGenderErr"></span>
           </div>
 
-          <!-- <div class="input-box">
+          <div class="input-box">
             <span class="details">Message</span>
-            <textarea rows="4" cols="50" id="Message" name="Message" placeholder="Enter your message" required></textarea>
-          </div> -->
+            <textarea id="Message" name="Message" placeholder="Enter your message . . ."   
+            style="width: 350px;height: 100px; font-size: 16px;  padding-left: 15px; border-radius: 5px; border: 2px solid #ccc;" required></textarea>
+          </div>
 
         </div>
 
@@ -153,14 +155,12 @@ if(isset($_POST['submit'])) {
   </div>
 </center>
 
-<script src="./js/formValidation.js"></script>
 
 <br>
 
 <?php include 'footer.php'?>
 
+<script src="./js/formValidation.js "></script>
 
 </body>
-
-
 </html>

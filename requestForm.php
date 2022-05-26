@@ -39,6 +39,7 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/form.css">
     <title>Request Blood Form</title>
+
 </head>
 
 <body>
@@ -69,7 +70,7 @@ if(isset($_POST['submit'])) {
     <div class="title">Request Form</div>
     <div class="content">
 
-      <form action="" method='POST'>
+      <form action="" name="regForm" method="POST" onsubmit="return formValidation()">
         <div class="user-details">
 
           <div class="input-box">
@@ -86,7 +87,8 @@ if(isset($_POST['submit'])) {
 
           <div class="input-box">
             <span class="details">Blood Pound</span>
-            <input type="number" placeholder="Enter how many pound of blood do you need" id="BloodPound" name="BloodPound" min="1" max="10" required>
+            <input type="number" placeholder="Enter how many pound of blood do you need" id="BloodPound" name="BloodPound" required>
+            <span style="color:red" id="rBloodPoundErr"></span>
           </div>
 
           <div class="input-box">
@@ -142,12 +144,12 @@ if(isset($_POST['submit'])) {
 
           <div class="input-box">
             <span class="details">Message</span>
-            <textarea rows="4" cols="40" placeholder="Enter your message" id="Message" name="Message" required></textarea>
+            <textarea placeholder="Enter your message . . ." id="Message" name="Message" style="width: 330px;height: 100px; font-size: 16px;  padding-left: 15px; border-radius: 5px; border: 2px solid #ccc;" required></textarea>
           </div>
         </div>
 
         <div class="button">
-          <input type="submit" value="Submit" name="submit">
+          <input type="submit" class="submit" value="Submit" name="submit">
           <!-- <button type="submit" name="submit" id="submit">Submit</button> -->
         </div>
       </form>
@@ -157,11 +159,14 @@ if(isset($_POST['submit'])) {
   </div>
 </center>
 
-<script src="./js/formValidation.js"></script>
+
 
 <br>
 
 <?php include 'footer.php'?>
+
+
+<script src="./js/formValidation.js"></script>
 
 </body>
 
