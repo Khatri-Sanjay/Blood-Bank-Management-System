@@ -50,7 +50,8 @@ if(isset($_POST['submit'])) {
               justify-content: center;
               color: green;
               font-weight: bold;
-          }
+              font-size: 20px;
+        }
     </style>
 </head>
 
@@ -75,16 +76,15 @@ if(isset($_POST['submit'])) {
         </div>
     </section>
 
-    <div class="success">
-    <?php 
-    
-    error_reporting(E_ERROR | E_PARSE);     
+      <div class="success">
+          <?php 
+          
+            error_reporting(E_ERROR | E_PARSE);     
 
-    echo $success; 
-    
-    ?>
-
-    </div>
+            echo $success; 
+          
+          ?>
+      </div>
 
     <!-- Donation From Section Starts From Here -->
 <center>

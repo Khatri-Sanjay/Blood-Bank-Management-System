@@ -45,7 +45,7 @@
     <br><br>
 
     <center>
-    <table class="content-table">
+    <table class="content-table" width="100%">
         <thead>
             <tr>
                 <th>S.N</th>
@@ -129,12 +129,16 @@
         </td>
         <td><?php echo $row ['Message']?></td>
         <td>
+        <?php
+                if ($row['Status']==0){
+                    ?>
             <button class="approve">
                 <a href="../approveReject/requestStatus.php?requestId=<?php echo $row ['Id'];?>&status=1" onclick = "sendMail('<?php echo $row['Email'];?>')">Approve</a>
             </button>
             <button class="reject">
                 <a href="../approveReject/requestStatus.php?requestId=<?php echo $row ['Id'];?>&status=2" onclick = "sendMail('<?php echo $row['Email'];?>')">Reject</a>
             </button>
+            <?php } ?>
         </td>
     </tr>
     <?php

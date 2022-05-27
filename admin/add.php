@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+
     include "../connection/config.php";
 ?>
 
@@ -19,13 +22,22 @@
             // echo $insert;
 
             if(mysqli_query($conn,$insert)){
-                echo '<script>alert("Donor Info Added succesfully")</script>';
+                
+                header("location: admindonorHistory.php");
+
+                $_SESSION['success'] = "--- Donor Information added succedfully ---";
+
+                // echo '<script>alert("Donor Info Added succesfully")</script>';
+                
                
             } else {
-                echo "unable to insert";
+
+                $_SESSION['success'] = "Unable to add data";
+                
+                // echo "unable to insert";
             }
+
             
-            header("location: admindonorHistory.php");
         }
 ?> 
 
@@ -40,21 +52,38 @@
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/table.css">
     <title>Donate Blood Form</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .back{
+            float: right;
+            font-size: 16px;
+            margin-right: 70px;
+            font-weight: bold; 
+        }
+    </style>
 </head>
 
 <body>
     
     <?php include 'adminHeader.php'?>
 
+
     <div class="title">
-        <h1>Add Donor History Information</h1>
+        <h1>Add Donor Information</h1>
+    </div>
+
+    <div class="back">
+        <button class="back" ><a href="admindonorHistory.php">Back</a></button>
     </div>
 
     <br>
+    
 
 <center>
     <div class="container">
-    <div class="title">Add Donor Information</div>
     <div class="content">
         <form action="" name="regForm" method="POST" onsubmit="return formValidation()">
 

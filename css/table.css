@@ -36,9 +36,6 @@
     border-bottom: 1px solid #dddddd;
 }
 
-/* .content-table tbody tr:nth-of-type(even){
-    background-color: #f3f3f3;
-} */
 
 .content-table tbody tr:last-of-type{
     border-bottom: 2px solid #f03a19; 
@@ -63,3 +60,6 @@ a{
 .add{
     background-color: rgb(15, 14, 14);
 }
+/* .back{
+    background-color: rgb(15, 14, 14);
+} */

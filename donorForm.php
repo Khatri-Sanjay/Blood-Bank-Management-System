@@ -21,7 +21,11 @@ if(isset($_POST['submit'])) {
         // echo $sqlquery;
 
         if (mysqli_query($conn, $sqlquery)){
-            echo '<script>alert("Donate Form submit succesfully")</script>';
+
+            $success = "Donate Form submit succesfully";
+
+            // echo '<script>alert("Donate Form submit succesfully")</script>';
+
         } else {
             echo "Error: " . $sqlquery . "<br>" . mysqli_error($conn);
         }
@@ -38,6 +42,16 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/form.css">
     <title>Donate Blood Form</title>
+
+    <style>
+        .success{
+              display: flex;
+              justify-content: center;
+              color: green;
+              font-weight: bold;
+              font-size: 20px;
+        }
+    </style>
     
     
 </head>
@@ -62,7 +76,16 @@ if(isset($_POST['submit'])) {
         </div>
     </section>
 
-  <br>
+    <div class="success">
+          <?php 
+          
+            error_reporting(E_ERROR | E_PARSE);     
+
+            echo $success; 
+          
+          ?>
+      </div>
+
     <!-- Donation From Section Starts From Here -->
 <center>
   <div class="container">

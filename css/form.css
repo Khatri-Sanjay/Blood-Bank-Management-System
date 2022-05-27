@@ -20,7 +20,7 @@
   font-weight: 500;
   position: relative;
 }
-.container .title::before{
+/* .container .title::before{
   content: "";
   position: absolute;
   left: 0;
@@ -29,7 +29,7 @@
   width: 30px;
   border-radius: 5px;
   background: linear-gradient(135deg, #eb3838, #f03a19);
-}
+} */
 .content form .user-details{
   display: flex;
   flex-wrap: wrap;

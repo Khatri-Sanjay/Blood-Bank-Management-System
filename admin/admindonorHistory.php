@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,12 @@
             display: inline-block;
             float: right;
             margin-right: 100px;
+        }
+        .success{
+            display: flex;
+            justify-content: center;
+            color: green;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -50,6 +60,17 @@
             <button type="submit">Submit</button>
         </form> 
     </div>
+
+    <div class="success">
+        <?php 
+
+            error_reporting(E_ERROR | E_PARSE);
+            echo $_SESSION['success']; 
+        
+        ?>
+
+    </div>
+
 
     <center>
     <table class="content-table">

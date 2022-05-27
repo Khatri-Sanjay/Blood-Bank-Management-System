@@ -42,7 +42,9 @@ session_start();
     <div class="content">
         
             <div class="header">
-                Hello <?php echo $_SESSION['username']; ?>
+                Hello <?php 
+                            echo $_SESSION['username']; 
+                        ?>
             </div>
             <p>
                 Welcome to Admin Dashboard

@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include "../connection/config.php";
 
     $id = $_GET['id'];
@@ -8,12 +10,17 @@
     echo $deleteQuery;
 
     if(mysqli_query($conn,$deleteQuery)){
-        echo "delete";
-    } else {
-        echo "unable to delete";
-    }
 
-    header("location:admindonorHistory.php");
+        header("location:admindonorHistory.php");
+
+        $_SESSION['success'] = "--- Donor Information deleted succedfully ---";
+        // echo "delete";
+
+    } else{
+
+        $_SESSION['success'] = "Unable to delete data";
+        // echo "unable to delete";
+    }
 
 
 ?>

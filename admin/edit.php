@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include "../connection/config.php";
 
     $id = $_GET['id'];
@@ -31,10 +33,14 @@ if(isset($_POST['submit'])) {
     $update = "UPDATE donorhistory SET Name='$name', Email='$email', BloodGroup='$bloodGroup', Gender='$gender', Contact='$contact', Address='$address', History='$history' WHERE Id=$id";
 
     if(mysqli_query($conn,$update)){
-        echo '<script>alert("Update succesfully")</script>';
+
+        $_SESSION['success'] = "--- Donor Information update succedfully ---";
+        // echo '<script>alert("Update succesfully")</script>';
        
     } else {
-        echo '<script>alert("Unable to Update")</script>';
+
+        $_SESSION['success'] = "Unable to Update data";
+        // echo '<script>alert("Unable to Update")</script>';
     }
     
     header("Location: ../admin/admindonorHistory.php");
