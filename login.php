@@ -19,7 +19,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         header("location: admin/adminDashboard.php");
     }else {
 
-        echo '<script>alert("Your Admin Login Name or Password is invalid")</script>';
+        $err = "* Your Admin Login Name or Password is invalid";
+
+        // echo '<script>alert("Your Admin Login Name or Password is invalid")</script>';
     }
 }
 ?>
@@ -28,7 +30,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>    
 <head>    
     <title>Login Form</title>    
-    <link rel="stylesheet" href="css/login.css">   
+    <link rel="stylesheet" href="css/login.css">  
+    <style>
+        .err{
+            display: flex;
+            justify-content: center;
+            color: red;
+            font-weight: bold;
+        }
+    </style> 
 </head>    
 <body>
     <div class="homePage">
@@ -39,23 +49,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h1>Login Page</h1><br>
 
+    <div class="err">
+    <?php 
+    
+    error_reporting(E_ERROR | E_PARSE);     
+
+    echo $err 
+    
+    ?>
+
+    </div>
+
     <div class="login">    
     <form action="" name="regForm" method="POST" onsubmit="return formValidation()">    
+        
         <label><b>User Name</b></label>    
         <input type="text" name="Uname" id="Uname" placeholder="Username">
         <br> 
-        <span style="color:red" id="rUsernameErr"></span>   
+        <span style="color:red; font: size 16px;" id="rUsernameErr"></span>   
         <br><br>    
         <label><b>Password</b></label>    
         <input type="Password" name="Pass" id="Pass" placeholder="Password">
         <br>
-        <span style="color:red" id="rPasswordErr"></span>    
+        <span style="color:red; font: size 16px;" id="rPasswordErr"></span>    
         <br><br>
         <button type="submit" class="submit" id="submit" name="submit">Log In Here</button>
     </form> 
     </div>
 
-<script src="./js/loginValidation.js"></script>
+<script src="js/loginValidation.js"></script>
 
 </body>
 

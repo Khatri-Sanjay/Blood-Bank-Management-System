@@ -129,10 +129,10 @@
         </td>
         <td><?php echo $row ['Message']?></td>
         <td>
-            <button class="approve">
+            <button class="approve" id="btn">
                 <a href="../approveReject/donorStatus.php?requestId=<?php echo $row ['Id'];?>&status=1" onclick = "sendMail('<?php echo $row['Email'];?>')">Approve</a>
             </button>
-            <button class="reject">
+            <button class="reject" id="btn">
                 <a href="../approveReject/donorStatus.php?requestId=<?php echo $row ['Id'];?>&status=2" onclick = "sendMail('<?php echo $row['Email'];?>')">Reject</a>
             </button>
         </td>

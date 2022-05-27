@@ -67,50 +67,56 @@ if(isset($_POST['submit'])) {
     <center>
     <div class="container">
         <div class="content">
-        <form action="" method="POST">
+        <form action="" name="regForm" method="POST" onsubmit="return formValidation()">
             <div class="user-details">
 
             <div class="input-box">
                 <span class="details">Full Name</span>
-                <input type="text" placeholder="Enter your name"  name="Name" 
+                <input type="text" placeholder="Enter your name" id="Name" name="Name" 
                 value=<?php echo $row['Name']?> maxlength = "40" required>
+                <span style="color:red" id="rNameErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Email</span>
-                <input type="email" placeholder="Enter your email" name="Email" 
-                value=<?php echo $row['Email']?> required>
+                <input type="email" placeholder="Enter your email" id="Email" name="Email" 
+                value=<?php echo $row['Email']?> >
+                <span style="color:red" id="rEmailErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Phone Number</span>
-                <input type="number" placeholder="Enter your number" name="Contact" 
-                value=<?php echo $row['Contact']?> max = "9999999999" required>
+                <input type="text" placeholder="Enter your number" id="Contact" name="Contact" 
+                value=<?php echo $row['Contact']?> >
+                <span style="color:red" id="rContactErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Age</span>
-                <input type="number" placeholder="Enter your age" name="Age" 
-                value=<?php echo $row['Age']?> max="99" required>
+                <input type="text" placeholder="Enter your age" id="Age" name="Age" 
+                value=<?php echo $row['Age']?> >
+                <span style="color:red" id="rAgeErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">History</span>
-                <input type="text" placeholder="Enter donor history" name="History" 
-                value=<?php echo $row['History']?> required>
+                <input type="number" placeholder="Enter donor history" id="History" name="History" 
+                value=<?php echo $row['History']?> >
+                <span style="color:red" id="rHistoryErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Adderss</span>
-                <input type="text" placeholder="Enter your address" name="Address" 
-                value=<?php echo $row['Address']?> maxlength = "20" required>
+                <input type="text" placeholder="Enter your address" id="Address" name="Address" 
+                value=<?php echo $row['Address']?> >
+                <span style="color:red" id="rAddressErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Choose Blood Group</span>
 
                 <select id="BloodGroup" name="BloodGroup" 
-                value=<?php echo $row['BloodGroup']?> required>
+                value=<?php echo $row['BloodGroup']?> >
 
                     <option value="A+ve"
                     <?php if($row['BloodGroup'] == 'A+ve'){ 
@@ -161,12 +167,14 @@ if(isset($_POST['submit'])) {
                     >O-ve</option>
 
                 </select>
+                <br>
+                <span style="color:red" id="rBloodGroupErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Gender</span>
                 <select name="Gender" id="Gender" 
-                value=<?php echo $row['Gender']?> required>
+                value=<?php echo $row['Gender']?> >
 
                     <option value="Male"
                     <?php if($row['Gender'] == 'Male'){ 
@@ -187,18 +195,22 @@ if(isset($_POST['submit'])) {
                     >Others</option>
 
                 </select>
+                <br>
+                <span style="color:red" id="rGenderErr"></span>
             </div>
 
             </div>
 
             <div class="button">
-                <input type="submit" value="Submit" name="submit">
+                <input type="submit" class="submit" value="Submit" name="submit">
             </div>
 
         </form>
         </div>
     </div>
     </center>
+
+<script src="../js/add.js"></script>
 
 </body>
 </html>

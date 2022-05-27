@@ -2,7 +2,6 @@
     include "../connection/config.php";
 ?>
 
-
 <?php
 
         if(isset($_POST['submit'])) {
@@ -57,68 +56,79 @@
     <div class="container">
     <div class="title">Add Donor Information</div>
     <div class="content">
-        <form action="" method="POST">
+        <form action="" name="regForm" method="POST" onsubmit="return formValidation()">
 
         <div class="user-details">
 
             <div class="input-box">
                 <span class="details">Full Name</span>
-                <input type="text" placeholder="Enter your name"  name="Name" maxlength = "40" required>
+                <input type="text" placeholder="Enter name" id="Name" name="Name">
+                <span style="color:red" id="rNameErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Email</span>
-                <input type="email" placeholder="Enter your email" name="Email" required>
+                <input type="email" placeholder="Enter email" id="Email" name="Email">
+                <span style="color:red" id="rEmailErr"></span>
             </div>
             
             <div class="input-box">
                 <span class="details">Phone Number</span>
-                <input type="number" placeholder="Enter your number" name="Contact" max = "9999999999" required>
+                <input type="text" placeholder="Enter number" id="Contact" name="Contact">
+                <span style="color:red" id="rContactErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Age</span>
-                <input type="number" placeholder="Enter your age" name="Age" max="99" required>
+                <input type="text" placeholder="Enter your age" id="Age" name="Age">
+                <span style="color:red" id="rAgeErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">History</span>
-                <input type="text" placeholder="Enter donate times" name="History" maxlength = "10" required>
+                <input type="text" placeholder="Enter donate times" id="History" name="History">
+                <span style="color:red" id="rHistoryErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Adderss</span>
-                <input type="text" placeholder="Enter your address" name="Address" maxlength = "20" required>
+                <input type="text" placeholder="Enter your address" id="Address" name="Address">
+                <span style="color:red" id="rAddressErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Choose Blood Group</span>
-                <select id="bGroup" name="BloodGroup" required>
-                <option value="A+ve">A+ve</option>
-                <option value="A-ve">A-ve</option>
-                <option value="B+ve">B+ve</option>
-                <option value="B-ve">B-ve</option>
-                <option value="AB+ve">AB+ve</option>
-                <option value="AB-ve">AB-ve</option>
-                <option value="O+ve">O+ve</option>
-                <option value="O-ve">O-ve</option>
-                <option value="None" selected>None</option>
+                <select id="BloodGroup" name="BloodGroup">
+                    <option value="">None</option>
+                    <option value="A+ve">A+ve</option>
+                    <option value="A-ve">A-ve</option>
+                    <option value="B+ve">B+ve</option>
+                    <option value="B-ve">B-ve</option>
+                    <option value="AB+ve">AB+ve</option>
+                    <option value="AB-ve">AB-ve</option>
+                    <option value="O+ve">O+ve</option>
+                    <option value="O-ve">O-ve</option>
+                    
                 </select>
+                <br>
+                <span style="color:red" id="rBloodGroupErr"></span>
             </div>
 
             <div class="input-box">
                 <span class="details">Gender</span>
-                <select name="Gender" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-                <option value="None" selected>None</option>
+                <select id="Gender" name="Gender">
+                    <option value="">None</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
                 </select>
+                <br>
+                <span style="color:red" id="rGenderErr"></span>
             </div>
 
         </div>
             <div class="button">
-            <input type="submit" value="Submit" name="submit">
+            <input type="submit" class="submit" value="Submit" name="submit">
         </div>
 
         </form>
@@ -126,6 +136,8 @@
     </div>
     </div>
 </center>
+
+<script src="../js/add.js"></script>
 
 </body>
 </html>

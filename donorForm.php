@@ -44,7 +44,7 @@ if(isset($_POST['submit'])) {
 
 <body>
     
-  <?php include 'header.php'?>
+<?php include 'header.php'?>
 
     <marquee behavior="sliding" direction="left" loop="10">
         Donate Blood Save Life &emsp; &emsp; Donate Blood Save Life &emsp; &emsp; 
@@ -75,43 +75,43 @@ if(isset($_POST['submit'])) {
 
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" id="Name" name="Name" required>
+            <input type="text" placeholder="Enter your name" id="Name" name="Name" >
             <span style="color:red" id="rNameErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="email" placeholder="Enter your email" id="Email" name="Email" required>
+            <input type="email" placeholder="Enter your email" id="Email" name="Email" >
             <span style="color:red" id="rEmailErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">CitizenShip No.</span>
-            <input type="text" placeholder="Enter CitizenShip Number" id="CitizenShip_No" name="CitizenShip_No" required>
+            <input type="text" placeholder="Enter CitizenShip Number" id="CitizenShip_No" name="CitizenShip_No" >
             <span style="color:red" id="rCitizenErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" id="Contact" name="Contact"  required>
+            <input type="text" placeholder="Enter your number" id="Contact" name="Contact">
             <span style="color:red" id="rContactErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Age</span>
-            <input type="text" placeholder="Enter your age" id="Age" name="Age" required>
+            <input type="text" placeholder="Enter your age" id="Age" name="Age" >
             <span style="color:red" id="rAgeErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Adderss</span>
-            <input type="text" placeholder="Enter your address" id="Address" name="Address" required>
+            <input type="text" placeholder="Enter your address" id="Address" name="Address">
             <span style="color:red" id="rAddressErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Choose Blood Group</span>
-            <select id="BloodGroup" name="BloodGroup" required>
+            <select id="BloodGroup" name="BloodGroup">
               <option value="">None</option>
               <option value="A+ve">A+ve</option>
               <option value="A-ve">A-ve</option>
@@ -122,24 +122,27 @@ if(isset($_POST['submit'])) {
               <option value="O+ve">O+ve</option>
               <option value="O-ve">O-ve</option>
             </select>
+            <br>
             <span style="color:red" id="rBloodGroupErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Gender</span>
-            <select id="Gender" name="Gender" required>
+            <select id="Gender" name="Gender">
               <option value="">None</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Others">Others</option>
             </select>
+            <br>
             <span style="color:red" id="rGenderErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Message</span>
             <textarea id="Message" name="Message" placeholder="Enter your message . . ."   
-            style="width: 350px;height: 100px; font-size: 16px;  padding-left: 15px; border-radius: 5px; border: 2px solid #ccc;" required></textarea>
+            style="width: 350px;height: 100px; font-size: 16px;  padding-left: 15px; border-radius: 5px; border: 2px solid #ccc;"></textarea>
+            <span style="color:red" id="rMessageErr"></span>
           </div>
 
         </div>
@@ -155,12 +158,7 @@ if(isset($_POST['submit'])) {
   </div>
 </center>
 
-
-<br>
+<script src="./js/donateFormValidation.js "></script>
 
 <?php include 'footer.php'?>
 
-<script src="./js/formValidation.js "></script>
-
-</body>
-</html>

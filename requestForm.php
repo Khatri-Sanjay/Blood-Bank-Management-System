@@ -18,7 +18,11 @@ if(isset($_POST['submit'])) {
         // echo $sqlquery;
 
         if (mysqli_query($conn, $sqlquery)){
-            echo '<script>alert("Request form submit succesfully")</script>';
+
+            $success = "Request form submit succesfully";
+          
+            // echo '<script>alert("Request form submit succesfully")</script>';
+
         } else {
             echo "Error: " . $sqlquery . "<br>" . mysqli_error($conn);
         }
@@ -40,6 +44,14 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="./css/form.css">
     <title>Request Blood Form</title>
 
+    <style>
+        .success{
+              display: flex;
+              justify-content: center;
+              color: green;
+              font-weight: bold;
+          }
+    </style>
 </head>
 
 <body>
@@ -63,7 +75,17 @@ if(isset($_POST['submit'])) {
         </div>
     </section>
 
-  <br>
+    <div class="success">
+    <?php 
+    
+    error_reporting(E_ERROR | E_PARSE);     
+
+    echo $success; 
+    
+    ?>
+
+    </div>
+
     <!-- Donation From Section Starts From Here -->
 <center>
   <div class="container">
@@ -75,43 +97,43 @@ if(isset($_POST['submit'])) {
 
           <div class="input-box">
             <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" id="Name" name="Name" required >
+            <input type="text" placeholder="Enter your name" id="Name" name="Name">
             <span style="color:red" id="rNameErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" id="Email" name="Email" required>
+            <input type="email" placeholder="Enter your email" id="Email" name="Email">
             <span style="color:red" id="rEmailErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Blood Pound</span>
-            <input type="number" placeholder="Enter how many pound of blood do you need" id="BloodPound" name="BloodPound" required>
+            <input type="number" placeholder="Enter quantity of blood pound" id="BloodPound" name="BloodPound">
             <span style="color:red" id="rBloodPoundErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">CitizenShip No.</span>
-            <input type="text" placeholder="Enter CitizenShip Number" id="CitizenShip_No" name="CitizenShip_No" required>
+            <input type="text" placeholder="Enter CitizenShip Number" id="CitizenShip_No" name="CitizenShip_No">
             <span style="color:red" id="rCitizenErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" id="Contact" name="Contact"  required>
+            <input type="text" placeholder="Enter your number" id="Contact" name="Contact">
             <span style="color:red" id="rContactErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Age</span>
-            <input type="number" placeholder="Enter your age" id="Age" name="Age" required>
+            <input type="number" placeholder="Enter your age" id="Age" name="Age">
             <span style="color:red" id="rAgeErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Choose Blood Group</span>
-            <select id="BloodGroup" name="BloodGroup" required>
+            <select id="BloodGroup" name="BloodGroup">
             <option value="">None</option>
               <option value="A+ve">A+ve</option>
               <option value="A-ve">A-ve</option>
@@ -122,29 +144,32 @@ if(isset($_POST['submit'])) {
               <option value="O+ve">O+ve</option>
               <option value="O-ve">O-ve</option>
             </select>
+            <br>
             <span style="color:red" id="rBloodGroupErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Gender</span>
-            <select id="Gender" name="Gender" required >
+            <select id="Gender" name="Gender">
               <option value="">None</option>
               <option name= "Gender" value="Male">Male</option>
               <option name= "Gender" value="Female">Female</option>
               <option name= "Gender" value="Others">Others</option>
             </select>
+            <br>
             <span style="color:red" id="rGenderErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Adderss</span>
-            <input type="text" placeholder="Enter your address" id="Address" name="Address" required>
+            <input type="text" placeholder="Enter your address" id="Address" name="Address">
             <span style="color:red" id="rAddressErr"></span>
           </div>
 
           <div class="input-box">
             <span class="details">Message</span>
-            <textarea placeholder="Enter your message . . ." id="Message" name="Message" style="width: 330px;height: 100px; font-size: 16px;  padding-left: 15px; border-radius: 5px; border: 2px solid #ccc;" required></textarea>
+            <textarea placeholder="Enter your message . . ." id="Message" name="Message" style="width: 330px;height: 100px; font-size: 16px;  padding-left: 15px; border-radius: 5px; border: 2px solid #ccc;"></textarea>
+            <span style="color:red" id="rMessageErr"></span>
           </div>
         </div>
 
@@ -159,15 +184,6 @@ if(isset($_POST['submit'])) {
   </div>
 </center>
 
-
-
-<br>
+<script src="./js/requestFormValidation.js"></script>
 
 <?php include 'footer.php'?>
-
-
-<script src="./js/formValidation.js"></script>
-
-</body>
-
-</html>

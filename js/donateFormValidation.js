@@ -6,15 +6,16 @@ const age = document.getElementById("Age");
 const address = document.getElementById("Address");
 const bloodGroup = document.getElementById("BloodGroup");
 const gender = document.getElementById("Gender");
+const message = document.getElementById("Message");
 const bloodPound = document.getElementById("BloodPound");
 
 
 function formValidation() {
 
     //name validation
-    // if(name == ""){
-    //     document.getElementById("rNameErr").innerHTML="* Please enter your name!"
-    // }
+    if(name.value === ""){
+        document.getElementById("rNameErr").innerHTML="* Please enter your name!"
+    }
 
     if(!name.value.match(/^[a-z\sA-z]+$/)){
         document.getElementById("rNameErr").innerHTML="* It is not a name";
@@ -22,17 +23,23 @@ function formValidation() {
         return false;
     }
 
-    if (name.value.length < 6 || name.value.length > 30) {
+    if (name.value.length < 6) {
+        document.getElementById("rNameErr").innerHTML="* Enter your proper name";
+        name.focus();
+        return false;
+    }
+
+    if (name.value.length > 30) {
         document.getElementById("rNameErr").innerHTML="* Enter your proper name";
         name.focus();
         return false;
     }
 
     //email validation
-    // if(email == ""){
-    //     document.getElementById("rEmailErr").innerHTML = "* Enter your email";
-    //     return false;
-    // }
+    if(email.value === ""){
+        document.getElementById("rEmailErr").innerHTML = "* Plese enter your email !";
+        return false;
+    }
 
     if(email.value.length < 9 || email.value.length > 40){
         document.getElementById("rEmailErr").innerHTML="* Give proper email address";
@@ -40,17 +47,18 @@ function formValidation() {
         return false;
     }
 
-    if(!emailPattern.value.match(/^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/)){
+    if(!email.value.match(/^[A-za-z0-9._]{3,}@[A-Za-z]{3,6}[.]{1}[A-Za-z.]{2,6}$/)){
         document.getElementById("rEmailErr").innerHTML="* It's not a proper email";
         email.focus();
         return false;
     }
 
+
     //citizenShip number validation
-    // if(!citizenShip == ""){
-    //     document.getElementById("rCitizenErr").innerHTML="* Please enter CitizenShip number!";
-    //     return false;
-    // }
+    if(!citizenShip.value === ""){
+        document.getElementById("rCitizenErr").innerHTML="* Please enter CitizenShip number!";
+        return false;
+    }
 
     if(!citizenShip.value.match(/\d$/)){
         document.getElementById("rCitizenErr").innerHTML="* It's not CitizenShip number";
@@ -79,10 +87,10 @@ function formValidation() {
 
 
     //phonenumber validation 
-    // if(phoneNumber.value == ""){
-    //     document.getElementById("rContactErr").innerHTML="* Please enter phone number";
-    //     return false;
-    // } 
+    if(phoneNumber.value === ""){
+        document.getElementById("rContactErr").innerHTML="* Please enter phone number!";
+        return false;
+    } 
 
     if(!phoneNumber.value.match(/\d$/)){
         document.getElementById("rContactErr").innerHTML="* It's not phone number";
@@ -106,18 +114,25 @@ function formValidation() {
     }
 
     //age validation
-    // if(age.value == ""){
-    //     document.getElementById("rAgeErr").innerHTML="* Please enter your age!";
-    //     return false;
-    // }
+    if(age.value === ""){
+        document.getElementById("rAgeErr").innerHTML="* Please enter your age!";
+        return false;
+    }
 
     if(!age.value.match(/\d$/)){
         document.getElementById("rAgeErr").innerHTML="* It's not an proper age";
         return false;
     }
 
+
+
     if(age.value.length < 2 || age.value.length > 2) {
         document.getElementById("rAgeErr").innerHTML="* Enter your proper age";
+        return false;
+    }
+
+    if(age.value < 0){
+        document.getElementById("rAgeErr").innerHTML="* Age cannot be negative";
         return false;
     }
 
@@ -132,10 +147,10 @@ function formValidation() {
     }
     
     //address validation
-    // if(address.value == ""){
-    //     document.getElementById("rAddressErr").innerHTML="* Address can't be empty";
-    //     return false;
-    // }
+    if(address.value == ""){
+        document.getElementById("rAddressErr").innerHTML="* Address can't be empty";
+        return false;
+    }
 
     if(address.value.match(/\d$/) ){
         document.getElementById("rAddressErr").innerHTML="* This is not an address";
@@ -153,33 +168,32 @@ function formValidation() {
     }
 
     //BloodGroup validation
-    // if (bloodGroup.value ==""){
-    //     document.getElementById("rBloodGroupErr").innerHTML="* Please select your blood group!";
-    //     return false;
-    //   }
+    if (bloodGroup.value === ""){
+        document.getElementById("rBloodGroupErr").innerHTML="* Please select your blood group!";
+        return false;
+    }
 
     // //Gender validation
-    // if(gender.value == ""){
-    //     document.getElementById("rGenderErr").innerHTML="* Please select your gender!";
-    //     return false;
-    // }
-
-    //blood pound validation
-    // if(bloodPound.value === ""){
-    //     document.getElementById("rBloodPoundErr").innerHTML="* Please enter quantity of blood you need!";
-    //     return false;
-    // }
-
-    if(bloodPound.value.length < 1 || bloodPound.value.length > 10){
-        document.getElementById("rBloodPoundErr").innerHTML="* Blood pound quantity upto 10 can only request";
+    if(gender.value === ""){
+        document.getElementById("rGenderErr").innerHTML="* Please select your gender!";
         return false;
     }
 
-    if(bloodPound.value.match(/\d$/)){
-        document.getElementById("rBloodPoundErr").innerHTML="* Enter proper quantity do you need";
+    //message validation
+    if(message.value === ""){
+        document.getElementById("rMessageErr").innerHTML="* Please enter your message!";
         return false;
     }
 
+    if(message.value.length < 10){
+        document.getElementById("rMessageErr").innerHTML="* Please enter proper message!";
+        return false;
+    }
+
+    if(message.value.length > 50){
+        document.getElementById("rMessageErr").innerHTML="* Give short message";
+        return false;
+    }
 
     return true;
 }
